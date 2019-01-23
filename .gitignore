@@ -1,0 +1,6 @@
+.sass-cache
+.jekyll-metadata
+app/www
+app/platforms
+app/plugins
+app/node_modules

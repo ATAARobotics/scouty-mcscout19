@@ -1,0 +1,82 @@
+{
+    "name": "ca.fourthreethreefour.scoutymcscout19",
+    "displayName": "Scouty-McScout19",
+    "version": "1.0.0",
+    "description": "Scouting app for ATAA",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "ATAA",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "cordova-android": "^7.1.4",
+        "cordova-ios": "^4.5.5",
+        "cordova-plugin-crosswalk-webview": "^2.4.0",
+        "cordova-plugin-ios-camera-permissions": "^1.2.0",
+        "cordova-plugin-splashscreen": "^5.0.2",
+        "cordova-plugin-sqlite-2": "^1.0.5",
+        "cordova-plugin-whitelist": "^1.3.3",
+        "cordova-plugin-wkwebview-engine": "^1.1.4"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-crosswalk-webview": {
+                "XWALK_VERSION": "23+",
+                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+                "XWALK_MODE": "embedded",
+                "XWALK_MULTIPLEAPK": "true"
+            },
+            "cordova-plugin-ios-camera-permissions": {
+                "XWALK_VERSION": "23+",
+                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+                "XWALK_MODE": "embedded",
+                "XWALK_MULTIPLEAPK": "true",
+                "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
+                "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
+                "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access"
+            },
+            "cordova-plugin-splashscreen": {
+                "XWALK_VERSION": "23+",
+                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+                "XWALK_MODE": "embedded",
+                "XWALK_MULTIPLEAPK": "true",
+                "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
+                "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
+                "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access"
+            },
+            "cordova-plugin-sqlite-2": {
+                "XWALK_VERSION": "23+",
+                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+                "XWALK_MODE": "embedded",
+                "XWALK_MULTIPLEAPK": "true",
+                "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
+                "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
+                "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access"
+            },
+            "cordova-plugin-wkwebview-engine": {
+                "XWALK_VERSION": "23+",
+                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+                "XWALK_MODE": "embedded",
+                "XWALK_MULTIPLEAPK": "true",
+                "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
+                "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
+                "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access"
+            }
+        },
+        "platforms": [
+            "ios",
+            "android"
+        ]
+    }
+}
