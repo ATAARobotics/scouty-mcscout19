@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Match
+files: |
+ <script src="./resources/js/match.js"></script>
 ---
 <div id='spinner'></div>
 <div id='status'>0</div>
@@ -38,7 +40,7 @@ title: Match
             <div>
                 <p style="margin-bottom: 0px"><span style="font-size: 24px;" id="timeMinutes">00</span><span style="font-size: 24px;">:</span><span
                         style="font-size: 24px;" id="timeSeconds">00</span><span style="font-size: 24px;">.</span><span
-                        style="font-size: 24px;" id="timeTenths">00</span></p>
+                        style="font-size: 24px;" id="timeTenths">0</span></p>
             </div>
         </div>
         <hr />
