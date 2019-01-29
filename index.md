@@ -163,7 +163,7 @@ files: |
                                     <input id="cargoshipCargo" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                         autocomplete="off" type="tel" class="form-control" value="0">
                                     <div class="input-group-append">
-                                        <button id='cargoshipCargoPlace' class="btn btn-primary disabled" type="button">Place</button>
+                                        <button id='cargoshipCargoPlace' class="btn btn-primary" type="button" disabled="true">Place</button>
                                     </div>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@ files: |
                                     <input id="rocket1Cargo" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                         autocomplete="off" type="tel" class="form-control" value="0">
                                     <div class="input-group-append">
-                                        <button id='rocket1CargoPlace' class="btn btn-primary disabled" type="button">Place</button>
+                                        <button id='rocket1CargoPlace' class="btn btn-primary" type="button" disabled="true">Place</button>
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@ files: |
                                     <input id="rocket2Cargo" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                         autocomplete="off" type="tel" class="form-control" value="0">
                                     <div class="input-group-append">
-                                        <button id='rocket2CargoPlace' class="btn btn-primary disabled" type="button">Place</button>
+                                        <button id='rocket2CargoPlace' class="btn btn-primary" type="button" disabled="true">Place</button>
                                     </div>
                                 </div>
                             </div>
@@ -217,7 +217,7 @@ files: |
                                     <input id="rocket3Cargo" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                         autocomplete="off" type="tel" class="form-control" value="0">
                                     <div class="input-group-append">
-                                        <button id='rocket3CargoPlace' class="btn btn-primary disabled" type="button">Place</button>
+                                        <button id='rocket3CargoPlace' class="btn btn-primary" type="button" disabled="true">Place</button>
                                     </div>
                                 </div>
                             </div>
@@ -235,7 +235,7 @@ files: |
                                     <input id="droppedCargo" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                         autocomplete="off" type="tel" class="form-control" value="0">
                                     <div class="input-group-append">
-                                        <button id='cargoDropped' class="btn btn-primary disabled" type="button">Dropped</button>
+                                        <button id='cargoDropped' class="btn btn-primary" type="button" disabled="true">Dropped</button>
                                     </div>
                                 </div>
                             </div>
@@ -244,7 +244,7 @@ files: |
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <button id='cargoPickup' class="btn btn-warning disabled" type="button" style="width: 100%; margin-bottom: 15px">Pickup</button>
+                        <button id='cargoPickup' class="btn btn-warning" type="button" style="width: 100%; margin-bottom: 15px" disabled="true">Pickup</button>
                     </div>
                 </div>
             </div>
@@ -267,7 +267,7 @@ files: |
                                     <input id="cargoshipHatch" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                         autocomplete="off" type="tel" class="form-control" value="0">
                                     <div class="input-group-append">
-                                        <button id='cargoshipHatchPlace' class="btn btn-primary disabled" type="button">Place</button>
+                                        <button id='cargoshipHatchPlace' class="btn btn-primary" type="button" disabled="true">Place</button>
                                     </div>
                                 </div>
                             </div>
@@ -285,7 +285,7 @@ files: |
                                     <input id="rocket1Hatch" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                         autocomplete="off" type="tel" class="form-control" value="0">
                                     <div class="input-group-append">
-                                        <button id='rocket1HatchPlace' class="btn btn-primary disabled" type="button">Place</button>
+                                        <button id='rocket1HatchPlace' class="btn btn-primary" type="button" disabled="true">Place</button>
                                     </div>
                                 </div>
                             </div>
@@ -303,7 +303,7 @@ files: |
                                     <input id="rocket2Hatch" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                         autocomplete="off" type="tel" class="form-control" value="0">
                                     <div class="input-group-append">
-                                        <button id='rocket2HatchPlace' class="btn btn-primary disabled" type="button">Place</button>
+                                        <button id='rocket2HatchPlace' class="btn btn-primary" type="button" disabled="true">Place</button>
                                     </div>
                                 </div>
                             </div>
@@ -321,7 +321,7 @@ files: |
                                     <input id="rocket3Hatch" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                         autocomplete="off" type="tel" class="form-control" value="0">
                                     <div class="input-group-append">
-                                        <button id='rocket3HatchPlace' class="btn btn-primary disabled" type="button">Place</button>
+                                        <button id='rocket3HatchPlace' class="btn btn-primary" type="button" disabled="true">Place</button>
                                     </div>
                                 </div>
                             </div>
@@ -339,7 +339,7 @@ files: |
                                     <input id="droppedHatch" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                         autocomplete="off" type="tel" class="form-control" value="0">
                                     <div class="input-group-append">
-                                        <button id='hatchDropped' class="btn btn-primary disabled" type="button">Dropped</button>
+                                        <button id='hatchDropped' class="btn btn-primary" type="button" disabled="true">Dropped</button>
                                     </div>
                                 </div>
                             </div>
@@ -348,7 +348,7 @@ files: |
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <button id='hatchPickup' class="btn btn-warning disabled" type="button" style="width: 100%; margin-bottom: 15px">Pickup</button>
+                        <button id='hatchPickup' class="btn btn-warning" type="button" style="width: 100%; margin-bottom: 15px" disabled="true">Pickup</button>
                     </div>
                 </div>
             </div>
@@ -395,11 +395,11 @@ files: |
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <button id='climbStart' class="btn btn-success disabled" type="button" style="width: 100%; margin-top: 15px">Climb
+                <button id='climbStart' class="btn btn-success" type="button" style="width: 100%; margin-top: 15px" disabled="true">Climb
                     Start</button>
             </div>
             <div class="col-md-6 col-sm-12">
-                <button id='climbEnd' class="btn btn-danger disabled" type="button" style="width: 100%; margin-top: 15px">Climb
+                <button id='climbEnd' class="btn btn-danger" type="button" style="width: 100%; margin-top: 15px" disabled="true">Climb
                     End</button>
             </div>
         </div>

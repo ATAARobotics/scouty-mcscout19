@@ -8,6 +8,10 @@ window.onload = function () {
     var Interval;
 
     startMatch.onclick = function () {
+        $('#startMatch').prop('disabled', true);
+        $('#cargoPickup').prop('disabled', false);
+        $('#hatchPickup').prop('disabled', false);
+        $('#climbStart').prop('disabled', false);
         start = new Date().getTime()
         elapsed = '0';
         Interval = setInterval(startTimer, 100);
