@@ -10,7 +10,9 @@
     "author": "ATAA",
     "license": "Apache-2.0",
     "dependencies": {
+        "android": "0.0.8",
         "cordova-android": "^7.1.4",
+        "cordova-android-support-gradle-release": "^2.0.1",
         "cordova-ios": "^4.5.5",
         "cordova-plugin-crosswalk-webview": "^2.4.0",
         "cordova-plugin-ios-camera-permissions": "^1.2.0",
@@ -30,48 +32,16 @@
                 "XWALK_MULTIPLEAPK": "true"
             },
             "cordova-plugin-ios-camera-permissions": {
-                "XWALK_VERSION": "23+",
-                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
-                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
-                "XWALK_MODE": "embedded",
-                "XWALK_MULTIPLEAPK": "true",
                 "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
                 "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
                 "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
                 "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access"
             },
-            "cordova-plugin-splashscreen": {
-                "XWALK_VERSION": "23+",
-                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
-                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
-                "XWALK_MODE": "embedded",
-                "XWALK_MULTIPLEAPK": "true",
-                "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
-                "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
-                "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
-                "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access"
-            },
-            "cordova-plugin-sqlite-2": {
-                "XWALK_VERSION": "23+",
-                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
-                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
-                "XWALK_MODE": "embedded",
-                "XWALK_MULTIPLEAPK": "true",
-                "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
-                "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
-                "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
-                "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access"
-            },
-            "cordova-plugin-wkwebview-engine": {
-                "XWALK_VERSION": "23+",
-                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
-                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
-                "XWALK_MODE": "embedded",
-                "XWALK_MULTIPLEAPK": "true",
-                "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
-                "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
-                "PHOTOLIBRARY_ADD_USAGE_DESCRIPTION": "This app needs write-access to photo library",
-                "PHOTOLIBRARY_USAGE_DESCRIPTION": "This app needs read/write-access photo library access"
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-sqlite-2": {},
+            "cordova-plugin-wkwebview-engine": {},
+            "cordova-android-support-gradle-release": {
+                "ANDROID_SUPPORT_VERSION": "27.+"
             }
         },
         "platforms": [

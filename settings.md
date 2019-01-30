@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Settings
+files: |
+ <script src="../resources/js/settings.js"></script>
 ---
 <div class="container-fluid" style="background-color: #f0f0f0; margin-bottom: 15px">
 	<form>
