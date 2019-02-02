@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Pit
+files: |
+ <script src="../resources/js/pit.js"></script>
 ---
 <div id='spinner'></div>
 <div id='status'>0</div>
@@ -47,14 +49,14 @@ title: Pit
                     </label>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-6">
+            <div class="col-lg-4 col-md-5 col-7">
                 <label class="mr-sm-2" style="display: block" for="groundIntake">Ground Intake</label>
                 <div id="groundIntake" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="groundIntakeYes" class="btn btn-secondary">
+                    <label id="groundIntakeCargo" class="btn btn-secondary">
                         <input type="radio" value="cargo" name="groundIntake" id="groundIntakeCargo" autocomplete="off">
                         Cargo
                     </label>
-                    <label id="groundIntakeNo" class="btn btn-secondary">
+                    <label id="groundIntakeHatch" class="btn btn-secondary">
                         <input type="radio" value="hatch" name="groundIntake" id="groundIntakeHatch" autocomplete="off">
                         Hatch
                     </label>
@@ -62,9 +64,13 @@ title: Pit
                         <input type="radio" value="both" name="groundIntake" id="groundIntakeBoth" autocomplete="off">
                         Both
                     </label>
+                    <label id="groundIntakeNone" class="btn btn-secondary">
+                        <input type="radio" value="none" name="groundIntake" id="groundIntakeNone" autocomplete="off">
+                        None
+                    </label>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-4">
+            <div class="col-lg-2 col-md-2 col-4">
                 <label class="mr-sm-2" style="display: block" for="climbLevel">Can Climb to Level:</label>
                 <div id="climbLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="climbLevel1" class="btn btn-secondary">
@@ -133,35 +139,35 @@ title: Pit
             <div class="col-6">
                 <label class="mr-sm-2" style="display: block" for="robotDone">Robot Done</label>
                 <div id="robotDone" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="robotDoneNo" class="btn btn-secondary">
-                        <input type="radio" value="0" name="robotDone" id="robotDoneNo" autocomplete="off"> No
-                    </label>
                     <label id="robotDoneYes" class="btn btn-secondary">
                         <input type="radio" value="1" name="robotDone" id="robotDoneYes" autocomplete="off"> Yes
+                    </label>
+                    <label id="robotDoneNo" class="btn btn-secondary">
+                        <input type="radio" value="0" name="robotDone" id="robotDoneNo" autocomplete="off"> No
                     </label>
                 </div>
             </div>
             <div class="col-6">
                 <label class="mr-sm-2" style="display: block" for="robotBroken">Anything Broken?</label>
                 <div id="robotBroken" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="robotBrokenNo" class="btn btn-secondary">
-                        <input type="radio" value="0" name="robotBroken" id="robotBrokenNo" autocomplete="off"> No
-                    </label>
                     <label id="robotBrokenYes" class="btn btn-secondary">
                         <input type="radio" value="1" name="robotBroken" id="robotBrokenYes" autocomplete="off"> Yes
+                    </label>
+                    <label id="robotBrokenNo" class="btn btn-secondary">
+                        <input type="radio" value="0" name="robotBroken" id="robotBrokenNo" autocomplete="off"> No
                     </label>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-12">
+            <div class="col-sm-6 col-6">
                 <div>
                     <img class="img-fluid" style="margin-top: 15px; display:none" alt="No Image" id="robotPhoto1Preview" />
                 </div>
                 <label class="mr-sm-2" style="display: block" for="robotPhoto1">Robot Photo 1</label>
                 <input style="margin-bottom: 15px; width:100%" type="file" accept="image/*" id="robotPhoto1" name="robotPhoto1">
             </div>
-            <div class="col-sm-6 col-12">
+            <div class="col-sm-6 col-6">
                 <div>
                     <img class="img-fluid" style="margin-top: 15px; display:none" alt="No Image" id="robotPhoto2Preview" />
                 </div>
