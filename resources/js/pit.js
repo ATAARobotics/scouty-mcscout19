@@ -68,6 +68,7 @@ window.onload = async function () {
     }
     document.getElementById("Submit").onclick = async function () {
         var teamNumber = $('#teamNumber').val();
+        var scoutName = localStorage.getItem('scoutName');
         var vision = parseInt($('input[name=vision]:checked').val());
         var robotAppearance = parseInt($('input[name=robotAppearance]:checked').val());
         var groundIntake = $('input[name=groundIntake]:checked').val();
@@ -91,6 +92,7 @@ window.onload = async function () {
                     data: robotPhoto2
                 }
             },
+            scoutName: scoutName,
             vision: vision,
             robotAppearance: robotAppearance,
             groundIntake: groundIntake,
@@ -119,7 +121,7 @@ window.onload = async function () {
                             doc._attachments['photo2.jpg'].data = old._attachments['photo2.jpg'].data;
                             doc._attachments['photo2.jpg'].content_type = old._attachments['photo2.jpg'].content_type;
                         }
-                        let newDoc = await db.put(doc);
+                        let newDoc = await db.put(doc, {force: true});
                         window.alert("Updated!");
                         window.location.href = '../pit/index.html';
                     }
