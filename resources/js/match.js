@@ -1,4 +1,4 @@
-window.onload = function () {
+window.onload = async function () {
     var startMatch = document.getElementById('startMatch');
     var timeSeconds = document.getElementById("timeSeconds");
     var timeMinutes = document.getElementById("timeMinutes");
@@ -18,6 +18,23 @@ window.onload = function () {
     var teleopHatchTimeTemp = [];
     var teleopHatchTime = [];
     var climbingTime = [];
+
+    if (localStorage.getItem('settingsCheck') == 1){
+        var databaseName = localStorage.getItem('databaseName');
+        var db;
+        if (window.cordova) {
+            document.addEventListener('deviceready', function () {
+                db = new PouchDB(databaseName, {adapter: 'cordova-sqlite'});
+                console.log(db.adapter);
+                console.log('SQLite plugin is installed?: ' + (!!window.sqlitePlugin));
+            });
+        } else {
+            db = new PouchDB(databaseName);
+        }
+    } else {
+        $('#Submit').prop('disabled', true);
+        window.alert("Check Settings!")
+    }
 
     function pickup(a) {
         if (a == "enable") {
@@ -241,5 +258,109 @@ window.onload = function () {
         document.getElementById('droppedHatch').value = parseInt($('#droppedHatch').val()) + 1;
         hatch('disable');
         pickup('enable');
+    }
+
+    document.getElementById("Submit").onclick = async function () {
+        var matchType = $('#matchType').val();
+        var matchNumber = $('#matchNumber').val();
+        var teamNumber = $('#teamNumber').val();
+
+        var startingLevel = parseInt($('input[name=startingLevel]:checked').val());
+        var crossedBaseline = parseInt($('input[name=crossedBaseline]:checked').val());
+        var sandstormCargoCargoship = parseInt($('input[name=sandstormCargoCargoship]:checked').val());
+        var sandstormCargoRocket = parseInt($('input[name=sandstormCargoRocket]:checked').val());
+        var sandstormHatchCargoship = parseInt($('input[name=sandstormHatchCargoship]:checked').val());
+        var sandstormHatchRocket = parseInt($('input[name=sandstormHatchRocket]:checked').val());
+
+        var teleopCargoshipCargo = parseInt($('#cargoshipCargo').val());
+        var teleopRocket1Cargo = parseInt($('#rocket1Cargo').val());
+        var teleopRocket2Cargo = parseInt($('#rocket2Cargo').val());
+        var teleopRocket3Cargo = parseInt($('#rocket3Cargo').val());
+        var teleopDroppedCargo = parseInt($('#droppedCargo').val());
+        var teleopCargoshipHatch = parseInt($('#cargoshipHatch').val());
+        var teleopRocket1Hatch = parseInt($('#rocket1Hatch').val());
+        var teleopRocket2Hatch = parseInt($('#rocket2Hatch').val());
+        var teleopRocket3Hatch = parseInt($('#rocket3Hatch').val());
+        var teleopDroppedHatch = parseInt($('#droppedHatch').val());
+
+        var climbingType = $('#climbingType').val()
+        var climbingGaveAssistance = parseInt($('input[name=gaveAssistance]:checked').val());
+        var climbingGotAssistance = parseInt($('input[name=gotAssistance]:checked').val());
+
+        var speed = parseInt($('input[name=speedRating]:checked').val());
+        var stability = parseInt($('input[name=stabilityRating]:checked').val());
+        var driverSkill = parseInt($('input[name=skillRating]:checked').val());
+        var defence = parseInt($('input[name=defenceRating]:checked').val());
+        var anythingBreak = parseInt($('input[name=anythingBreak]:checked').val());
+        var dead = parseInt($('input[name=robotDead]:checked').val());
+
+        var comments = $('#commentSection').val();
+
+        var doc = {
+            _id: `${matchType}${matchNumber}_${teamNumber}`,
+            startingLevel: startingLevel,
+            crossedBaseline: crossedBaseline,
+            crossedBaselineTime: crossedBaselineTime,
+            sandstormCargoCargoship: sandstormCargoCargoship,
+            sandstormCargoCargoshipTime: sandstormCargoCargoshipTime,
+            sandstormCargoRocket: sandstormCargoRocket,
+            sandstormCargoRocketTime: sandstormCargoRocketTime,
+            sandstormHatchCargoship: sandstormHatchCargoship,
+            sandstormHatchCargoshipTime: sandstormHatchCargoshipTime,
+            sandstormHatchRocket: sandstormHatchRocket,
+            sandstormHatchRocketTime: sandstormHatchRocketTime,
+            teleopCargoshipCargo: teleopCargoshipCargo,
+            teleopRocket1Cargo: teleopRocket1Cargo,
+            teleopRocket2Cargo: teleopRocket2Cargo,
+            teleopRocket3Cargo: teleopRocket3Cargo,
+            teleopDroppedCargo: teleopDroppedCargo,
+            teleopCargoTime: teleopCargoTime,
+            teleopCargoshipHatch: teleopCargoshipHatch,
+            teleopRocket1Hatch: teleopRocket1Hatch,
+            teleopRocket2Hatch: teleopRocket2Hatch,
+            teleopRocket3Hatch: teleopRocket3Hatch,
+            teleopDroppedHatch: teleopDroppedHatch,
+            teleopHatchTime: teleopHatchTime,
+            climbingType: climbingType,
+            climbingTime: climbingTime,
+            climbingGaveAssistance: climbingGaveAssistance,
+            climbingGotAssistance: climbingGotAssistance,
+            speed: speed,
+            stability: stability,
+            driverSkill: driverSkill,
+            defence: defence,
+            anythingBreak: anythingBreak,
+            dead: dead,
+            comments: comments
+        }
+        if (localStorage.getItem('settingsCheck') == 1) {
+            if (matchType && matchNumber && teamNumber) {
+                try {
+                    let docPut = await db.put(doc);
+                    window.alert("Submitted!");
+                    window.location.href = "/";
+                } catch (err) {
+                    if (err.status == 409) {
+                        let old = await db.get(`${matchType}${matchNumber}_${teamNumber}`);
+                        doc._rev = old._rev;
+                        doc.crossedBaselineTime = old.crossedBaselineTime;
+                        doc.sandstormCargoCargoshipTime = old.sandstormCargoCargoshipTime;
+                        doc.sandstormCargoRocketTime = old.sandstormCargoRocketTime;
+                        doc.sandstormHatchCargoshipTime = old.sandstormHatchCargoshipTime;
+                        doc.sandstormHatchRocketTime = old.sandstormHatchRocketTime;
+                        doc.teleopCargoTime = old.teleopCargoTime;
+                        doc.teleopHatchTime = old.teleopHatchTime;
+                        doc.climbingTime = old.climbingTime;
+                        let newDoc = await db.put(doc, {force: true});
+                        window.alert("Updated!");
+                        window.location.href = "/";
+                    }
+                }
+            } else {
+                window.alert("Fill all fields!")
+            }
+        } else {
+            window.alert("Set settings first!")
+        }
     }
 }
