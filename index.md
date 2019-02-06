@@ -369,11 +369,11 @@ files: |
             <div class="col-3">
                 <label class="mr-sm-2" style="display: block" for="gaveAssistance">Gave assistance</label>
                 <div id="gaveAssistance" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary">
+                    <label id="gaveAssistanceYes" class="btn btn-secondary">
                         <input type="radio" value="1" name="gaveAssistance" id="gaveAssistanceYes" autocomplete="off">
                         Yes
                     </label>
-                    <label class="btn btn-secondary">
+                    <label id="gaveAssistanceNo" class="btn btn-secondary">
                         <input type="radio" value="0" name="gaveAssistance" id="gaveAssistanceNo" autocomplete="off">
                         No
                     </label>
@@ -382,11 +382,11 @@ files: |
             <div class="col-3">
                 <label class="mr-sm-2" style="display: block" for="gotAssistance">Got assistance</label>
                 <div id="gotAssistance" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary">
+                    <label id="gotAssistanceYes" class="btn btn-secondary">
                         <input type="radio" value="1" name="gotAssistance" id="gotAssistanceYes" autocomplete="off">
                         Yes
                     </label>
-                    <label class="btn btn-secondary">
+                    <label id="gotAssistanceNo" class="btn btn-secondary">
                         <input type="radio" value="0" name="gotAssistance" id="gotAssistanceNo" autocomplete="off">
                         No
                     </label>
