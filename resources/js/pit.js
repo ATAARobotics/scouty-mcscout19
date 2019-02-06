@@ -27,7 +27,7 @@ window.onload = async function () {
         var robotPhoto1Url = URL.createObjectURL(doc._attachments['photo1.jpg'].data);
         var robotPhoto2Url = URL.createObjectURL(doc._attachments['photo2.jpg'].data);
         var comments = doc.comments;
-        $('#commentSection').val(comments);
+        $('#commentSection').val(`${comments}\n---EDIT---\n`);
         robotPhoto1Preview.src = robotPhoto1Url;
         robotPhoto2Preview.src = robotPhoto2Url;
         document.getElementById("robotPhoto1Preview").style.display = "block";

@@ -284,7 +284,7 @@ window.onload = async function () {
         $('#' + $('input[name=sandstormHatchCargoship]:checked').attr("id")).addClass('active');
         $("input[name=sandstormHatchRocket][value=" + doc.sandstormHatchRocket + "]").prop('checked', true);
         $('#' + $('input[name=sandstormHatchRocket]:checked').attr("id")).addClass('active');
-        $('#commentSection').val(doc.comments);
+        $('#commentSection').val(`${doc.comments}\n---EDIT---\n`);
         $("input[name=gaveAssistance][value=" + doc.climbingGaveAssistance + "]").prop('checked', true);
         $('#' + $('input[name=gaveAssistance]:checked').attr("id")).addClass('active');
         $("input[name=gotAssistance][value=" + doc.climbingGotAssistance + "]").prop('checked', true);
