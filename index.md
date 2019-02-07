@@ -38,8 +38,8 @@ files: |
                 <button type="button" id="startMatch" class="btn btn-primary">Start Match</button>
             </div>
             <div>
-                <p style="margin-bottom: 0px"><span style="font-size: 24px;" id="timeMinutes">00</span><span style="font-size: 24px;">:</span><span
-                        style="font-size: 24px;" id="timeSeconds">00</span><span style="font-size: 24px;">.</span><span
+                <p style="margin-bottom: 0px"><span style="font-size: 24px;" id="timeMinutes">02</span><span style="font-size: 24px;">:</span><span
+                        style="font-size: 24px;" id="timeSeconds">30</span><span style="font-size: 24px;">.</span><span
                         style="font-size: 24px;" id="timeTenths">0</span></p>
             </div>
         </div>

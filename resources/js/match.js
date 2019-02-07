@@ -3,9 +3,6 @@ window.onload = async function () {
     var timeSeconds = document.getElementById("timeSeconds");
     var timeMinutes = document.getElementById("timeMinutes");
     var timeTenths = document.getElementById("timeTenths");
-    var start;
-    var elapsed;
-    var Interval;
 
     var crossedBaselineTime;
     var sandstormCargoCargoshipTime;
@@ -86,36 +83,46 @@ window.onload = async function () {
         $('#cargoPickup').prop('disabled', false);
         $('#hatchPickup').prop('disabled', false);
         $('#climbStart').prop('disabled', false);
-        start = new Date().getTime()
-        elapsed = '0';
-        Interval = setInterval(startTimer, 100);
+        startTimer();
     }
-    function startTimer() {
-        var time = new Date().getTime() - start;
-        elapsed = Math.floor(time / 1000);
-        if (Math.round(elapsed) == elapsed) {
-            elapsed += '.0';
-        }
-        elapsedminutes = Math.floor(elapsed / 60);
-        elapsedseconds = elapsed - elapsedminutes * 60;
-        if (elapsedseconds < 10) {
-            clockseconds = "0" + elapsedseconds;
-        } else {
-            clockseconds = elapsedseconds;
-        }
-        if (elapsedminutes < 10) {
-            clockminutes = "0" + elapsedminutes;
-        } else {
-            clockminutes = elapsedminutes;
-        }
 
-        if (elapsedminutes == 2 && elapsedseconds == 30) {
-            clearInterval(Interval);
-        }
-        timeTenths.innerHTML = Math.floor(time / 100) % 10;
-        timeSeconds.innerHTML = clockseconds;
-        timeMinutes.innerHTML = clockminutes;
-    }
+    function startTimer() {
+        var start = Date.now(),
+            diff,
+            minutes,
+            seconds,
+            tenths,
+            Interval;
+        function timer() {
+            // get the number of seconds that have elapsed since 
+            // startTimer() was called
+            diff = ((60 * 2 *10) + 300) - (((Date.now() - start) / 100) | 0);
+    
+            // does the same job as parseInt truncates the float
+            tenths = diff % 10;
+            minutes = ((diff/10) / 60) | 0;
+            seconds = ((diff/10) % 60) | 0;
+    
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+    
+            timeTenths.innerHTML = tenths;
+            timeSeconds.innerHTML = seconds;
+            timeMinutes.innerHTML = minutes;
+    
+            if (diff <= 0) {
+                // add one second so that the count down starts at the full duration
+                // example 05:00 not 04:59
+                start = Date.now() + 1000;
+            }
+            if (minutes == 0 && seconds == 0 && tenths == 0) {
+                clearInterval(Interval);
+            }
+        };
+        // we don't want to wait a full second before the timer starts
+        timer();
+        Interval = setInterval(timer, 100);
+    }    
 
     document.getElementById('climbStart').onclick = function() {
         climbingTime.push(`${timeMinutes.innerHTML}:${timeSeconds.innerHTML}.${timeTenths.innerHTML}`);
