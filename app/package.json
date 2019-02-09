@@ -14,7 +14,6 @@
         "cordova-android": "^7.1.4",
         "cordova-android-support-gradle-release": "^2.0.1",
         "cordova-ios": "^4.5.5",
-        "cordova-plugin-crosswalk-webview": "^2.4.0",
         "cordova-plugin-ios-camera-permissions": "^1.2.0",
         "cordova-plugin-splashscreen": "^5.0.2",
         "cordova-plugin-sqlite-2": "^1.0.5",
@@ -24,13 +23,6 @@
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-crosswalk-webview": {
-                "XWALK_VERSION": "23+",
-                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
-                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
-                "XWALK_MODE": "embedded",
-                "XWALK_MULTIPLEAPK": "true"
-            },
             "cordova-plugin-ios-camera-permissions": {
                 "CAMERA_USAGE_DESCRIPTION": "This app needs camera access",
                 "MICROPHONE_USAGE_DESCRIPTION": "This app needs microphone access",
