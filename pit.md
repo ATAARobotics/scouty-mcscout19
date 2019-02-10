@@ -165,14 +165,32 @@ files: |
                     <img class="img-fluid" style="margin-top: 15px; display:none" alt="No Image" id="robotPhoto1Preview" />
                 </div>
                 <label class="mr-sm-2" style="display: block" for="robotPhoto1">Robot Photo 1</label>
-                <input style="margin-bottom: 15px; width:100%" type="file" accept="image/*" id="robotPhoto1" name="robotPhoto1">
+                <div class="row">
+                    <div class="col-sm-6 col-12">
+                        <button id='newPicture1' class="btn btn-info" type="button" style="width: 100%; margin-bottom: 15px">Take
+                            Picture</button>
+                    </div>
+                    <div class="col-sm-6 col-12">
+                        <button id='existingPicture1' class="btn btn-info" type="button" style="width: 100%; margin-bottom: 15px">Use
+                            Existing</button>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-6 col-6">
                 <div>
                     <img class="img-fluid" style="margin-top: 15px; display:none" alt="No Image" id="robotPhoto2Preview" />
                 </div>
                 <label class="mr-sm-2" style="display: block" for="robotPhoto2">Robot Photo 2</label>
-                <input style="margin-bottom: 15px; width:100%" type="file" accept="image/*" id="robotPhoto2" name="robotPhoto2">
+                <div class="row">
+                    <div class="col-sm-6 col-12">
+                        <button id='newPicture2' class="btn btn-info" type="button" style="width: 100%; margin-bottom: 15px">Take
+                            Picture</button>
+                    </div>
+                    <div class="col-sm-6 col-12">
+                        <button id='existingPicture2' class="btn btn-info" type="button" style="width: 100%; margin-bottom: 15px">Use
+                            Existing</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">

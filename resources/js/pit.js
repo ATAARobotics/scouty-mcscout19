@@ -15,6 +15,83 @@ window.onload = async function () {
         $('#Submit').prop('disabled', true);
         window.alert("Check Settings!")
     }
+    function b64toBlob(b64Data, contentType, sliceSize) {
+        contentType = contentType || '';
+        sliceSize = sliceSize || 512;
+      
+        var byteCharacters = atob(b64Data);
+        var byteArrays = [];
+      
+        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+          var slice = byteCharacters.slice(offset, offset + sliceSize);
+      
+          var byteNumbers = new Array(slice.length);
+          for (var i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+          }
+      
+          var byteArray = new Uint8Array(byteNumbers);
+      
+          byteArrays.push(byteArray);
+        }
+      
+        var blob = new Blob(byteArrays, {type: contentType});
+        return blob;
+    }
+    var picture1;
+    document.getElementById('newPicture1').onclick = function () {
+        document.addEventListener('deviceready', function () {
+            function success(img) {
+                picture1 = b64toBlob(img, 'image/jpeg');
+                document.getElementById("robotPhoto1Preview").style.display = "block";
+                robotPhoto1Preview.src = URL.createObjectURL(picture1);
+            }
+            function fail() {
+                console.log('newPicture1 fail');
+            }
+            navigator.camera.getPicture(success, fail, {destinationType: Camera.DestinationType.DATA_URL});
+        });
+    }
+    document.getElementById('existingPicture1').onclick = function () {
+        document.addEventListener('deviceready', function () {
+            function success(img) {
+                picture1 = b64toBlob(img, 'image/jpeg');
+                document.getElementById("robotPhoto1Preview").style.display = "block";
+                robotPhoto1Preview.src = URL.createObjectURL(picture1);
+            }
+            function fail() {
+                console.log('existingPicture1 fail');
+            }
+            navigator.camera.getPicture(success, fail, {destinationType: Camera.DestinationType.DATA_URL, sourceType: Camera.PictureSourceType.PHOTOLIBRARY});
+        });
+    }
+    var picture2;
+    document.getElementById('newPicture2').onclick = function () {
+        document.addEventListener('deviceready', function () {
+            function success(img) {
+                picture2 = b64toBlob(img, 'image/jpeg');
+                document.getElementById("robotPhoto2Preview").style.display = "block";
+                robotPhoto2Preview.src = URL.createObjectURL(picture2);
+            }
+            function fail() {
+                console.log('newPicture2 fail');
+            }
+            navigator.camera.getPicture(success, fail, {destinationType: Camera.DestinationType.DATA_URL});
+        });
+    }
+    document.getElementById('existingPicture2').onclick = function () {
+        document.addEventListener('deviceready', function () {
+            function success(img) {
+                picture2 = b64toBlob(img, 'image/jpeg');
+                document.getElementById("robotPhoto2Preview").style.display = "block";
+                robotPhoto2Preview.src = URL.createObjectURL(picture2);
+            }
+            function fail() {
+                console.log('existingPicture2 fail');
+            }
+            navigator.camera.getPicture(success, fail, {destinationType: Camera.DestinationType.DATA_URL, sourceType: Camera.PictureSourceType.PHOTOLIBRARY});
+        });
+    }
     function show(doc) {
         var vision = doc.vision;
         var robotAppearance = doc.robotAppearance;
@@ -77,19 +154,17 @@ window.onload = async function () {
         var hatchLevel = $('input[name=hatchLevel]:checked').val();
         var robotDone = parseInt($('input[name=robotDone]:checked').val());
         var robotBroken = parseInt($('input[name=robotBroken]:checked').val());
-        var robotPhoto1 = $('#robotPhoto1').prop("files")[0] || '';
-        var robotPhoto2 = $('#robotPhoto2').prop("files")[0] || '';
         var comments = $('#commentSection').val();
         var doc = {
             _id: `pit_${teamNumber}`,
             _attachments: {
                 'photo1.jpg':{
-                    content_type: robotPhoto1.type,
-                    data: robotPhoto1
+                    content_type: picture1.type,
+                    data: picture1
                 },
                 'photo2.jpg': {
-                    content_type: robotPhoto2.type,
-                    data: robotPhoto2
+                    content_type: picture1.type,
+                    data: picture1
                 }
             },
             scoutName: scoutName,
