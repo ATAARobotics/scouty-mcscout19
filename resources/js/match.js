@@ -19,7 +19,7 @@ window.onload = async function () {
     if (localStorage.getItem('settingsCheck') == 1){
         var databaseName = localStorage.getItem('databaseName');
         var db;
-        if (window.cordova) {
+        if (device.platform != "browser") {
             document.addEventListener('deviceready', function () {
                 db = new PouchDB(databaseName, {adapter: 'cordova-sqlite'});
                 console.log(db.adapter);
