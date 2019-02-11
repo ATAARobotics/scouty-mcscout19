@@ -38,7 +38,7 @@ window.onload = async function () {
         var blob = new Blob(byteArrays, {type: contentType});
         return blob;
     }
-    var picture1;
+    var picture1 = '';
     document.getElementById('newPicture1').onclick = function () {
         document.addEventListener('deviceready', function () {
             function success(img) {
@@ -65,7 +65,7 @@ window.onload = async function () {
             navigator.camera.getPicture(success, fail, {destinationType: Camera.DestinationType.DATA_URL, sourceType: Camera.PictureSourceType.PHOTOLIBRARY});
         });
     }
-    var picture2;
+    var picture2 = '';
     document.getElementById('newPicture2').onclick = function () {
         document.addEventListener('deviceready', function () {
             function success(img) {
@@ -159,12 +159,12 @@ window.onload = async function () {
             _id: `pit_${teamNumber}`,
             _attachments: {
                 'photo1.jpg':{
-                    content_type: picture1.type,
-                    data: picture1
+                    content_type: picture1.type || '',
+                    data: picture1 || ''
                 },
                 'photo2.jpg': {
-                    content_type: picture1.type,
-                    data: picture1
+                    content_type: picture1.type || '',
+                    data: picture1 || ''
                 }
             },
             scoutName: scoutName,

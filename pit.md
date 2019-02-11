@@ -196,7 +196,7 @@ files: |
         <div class="row">
             <div class="col">
                 <label class="mr-sm-2" style="display: block" for="commentSection">Notes and Comments</label>
-                <textarea style="width: 100%; height:100px" id="commentSection"></textarea>
+                <textarea autocomplete="off" style="width: 100%; height:100px" id="commentSection"></textarea>
             </div>
         </div>
         <button id="Submit" class="btn btn-success" type="button" style="margin-top: 15px; margin-bottom: 15px">Submit</button>
