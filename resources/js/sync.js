@@ -1,5 +1,5 @@
-$(document).ready(function () {
-    document.getElementById("sync").onclick = function() {
+document.addEventListener('deviceready', async function () {
+    document.getElementById("sync").onclick = function () {
         var databaseName = localStorage.getItem('databaseName');
         var serverIp = localStorage.getItem('serverIp');
         var serverUsername = localStorage.getItem('serverUsername');
@@ -9,15 +9,13 @@ $(document).ready(function () {
         document.getElementById("header").style.display = "none";
         document.getElementById("spinner").style.display = "block";
         document.getElementById("status").style.display = "block";
-        if (localStorage.getItem('settingsCheck') == 1){
+        if (localStorage.getItem('settingsCheck') == 1) {
             var databaseName = localStorage.getItem('databaseName');
             var db;
             if (window.device.platform != "browser") {
-                document.addEventListener('deviceready', function () {
-                    db = new PouchDB(databaseName, {adapter: 'cordova-sqlite'});
-                    console.log(db.adapter);
-                    console.log('SQLite plugin is installed?: ' + (!!window.sqlitePlugin));
-                });
+                db = new PouchDB(databaseName, { adapter: 'cordova-sqlite' });
+                console.log(db.adapter);
+                console.log('SQLite plugin is installed?: ' + (!!window.sqlitePlugin));
             } else {
                 db = new PouchDB(databaseName);
             }
@@ -50,7 +48,7 @@ $(document).ready(function () {
                         }).on('complete', function (info) {
                             console.log('done');
                             window.alert("Synced successfully!");
-                            window.location.reload();  
+                            window.location.reload();
                         }).on('error', function (err) {
                             window.alert("Sync Error! Try Again!");
                             window.location.reload();
@@ -58,15 +56,15 @@ $(document).ready(function () {
                     },
                     404: function (response) {
                         window.alert("Server ip or database name is incorrect! Check server ip and database name!");
-                        window.location.reload();                    
+                        window.location.reload();
                     },
                     401: function (response) {
                         window.alert("Incorrect username or password!");
-                        window.location.reload();                    
+                        window.location.reload();
                     },
                     0: function (response) {
                         window.alert("Couldn't reach server. Are you connected to the internet?");
-                        window.location.reload();                    
+                        window.location.reload();
                     }
                 }
             });

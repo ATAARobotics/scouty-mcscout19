@@ -1,4 +1,4 @@
-window.onload = async function () {
+document.addEventListener('deviceready', async function () {
     var startMatch = document.getElementById('startMatch');
     var timeSeconds = document.getElementById("timeSeconds");
     var timeMinutes = document.getElementById("timeMinutes");
@@ -20,11 +20,9 @@ window.onload = async function () {
         var databaseName = localStorage.getItem('databaseName');
         var db;
         if (device.platform != "browser") {
-            document.addEventListener('deviceready', function () {
-                db = new PouchDB(databaseName, {adapter: 'cordova-sqlite'});
-                console.log(db.adapter);
-                console.log('SQLite plugin is installed?: ' + (!!window.sqlitePlugin));
-            });
+            db = new PouchDB(databaseName, {adapter: 'cordova-sqlite'});
+            console.log(db.adapter);
+            console.log('SQLite plugin is installed?: ' + (!!window.sqlitePlugin));
         } else {
             db = new PouchDB(databaseName);
         }
@@ -345,6 +343,7 @@ window.onload = async function () {
     async function update() {
         try {
             var matchDoc = await db.get(`${$('#matchType').val()}${$('#matchNumber').val()}_${$('#teamNumber').val()}`);
+            hide();
             show(matchDoc);
         } catch (err) {
             hide();
@@ -465,4 +464,4 @@ window.onload = async function () {
             window.alert("Set settings first!")
         }
     }
-}
+});

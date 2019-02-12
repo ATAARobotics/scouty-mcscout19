@@ -1,4 +1,4 @@
-window.onload = async function () {
+document.addEventListener('deviceready', async function () {
     var databaseNameSet = document.getElementById("databaseName");
     databaseNameSet.value = localStorage.getItem('databaseName');
     var serverIpSet = document.getElementById("serverIp");
@@ -95,4 +95,4 @@ window.onload = async function () {
         }
     });
 
-}
+});

@@ -1,13 +1,11 @@
-window.onload = async function () {
-    if (localStorage.getItem('settingsCheck') == 1){
+document.addEventListener('deviceready', async function () {
+    if (localStorage.getItem('settingsCheck') == 1) {
         var databaseName = localStorage.getItem('databaseName');
         var db;
         if (device.platform != "browser") {
-            document.addEventListener('deviceready', function () {
-                db = new PouchDB(databaseName, {adapter: 'cordova-sqlite'});
-                console.log(db.adapter);
-                console.log('SQLite plugin is installed?: ' + (!!window.sqlitePlugin));
-            });
+            db = new PouchDB(databaseName, { adapter: 'cordova-sqlite' });
+            console.log(db.adapter);
+            console.log('SQLite plugin is installed?: ' + (!!window.sqlitePlugin));
         } else {
             db = new PouchDB(databaseName);
         }
@@ -18,79 +16,71 @@ window.onload = async function () {
     function b64toBlob(b64Data, contentType, sliceSize) {
         contentType = contentType || '';
         sliceSize = sliceSize || 512;
-      
+
         var byteCharacters = atob(b64Data);
         var byteArrays = [];
-      
+
         for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-          var slice = byteCharacters.slice(offset, offset + sliceSize);
-      
-          var byteNumbers = new Array(slice.length);
-          for (var i = 0; i < slice.length; i++) {
-            byteNumbers[i] = slice.charCodeAt(i);
-          }
-      
-          var byteArray = new Uint8Array(byteNumbers);
-      
-          byteArrays.push(byteArray);
+            var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+            var byteNumbers = new Array(slice.length);
+            for (var i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+
+            var byteArray = new Uint8Array(byteNumbers);
+
+            byteArrays.push(byteArray);
         }
-      
-        var blob = new Blob(byteArrays, {type: contentType});
+
+        var blob = new Blob(byteArrays, { type: contentType });
         return blob;
     }
     var picture1 = '';
     document.getElementById('newPicture1').onclick = function () {
-        document.addEventListener('deviceready', function () {
-            function success(img) {
-                picture1 = b64toBlob(img, 'image/jpeg');
-                document.getElementById("robotPhoto1Preview").style.display = "block";
-                robotPhoto1Preview.src = URL.createObjectURL(picture1);
-            }
-            function fail() {
-                console.log('newPicture1 fail');
-            }
-            navigator.camera.getPicture(success, fail, {destinationType: Camera.DestinationType.DATA_URL});
-        });
+        function success(img) {
+            picture1 = b64toBlob(img, 'image/jpeg');
+            document.getElementById("robotPhoto1Preview").style.display = "block";
+            robotPhoto1Preview.src = URL.createObjectURL(picture1);
+        }
+        function fail() {
+            console.log('newPicture1 fail');
+        }
+        navigator.camera.getPicture(success, fail, { destinationType: Camera.DestinationType.DATA_URL });
     }
     document.getElementById('existingPicture1').onclick = function () {
-        document.addEventListener('deviceready', function () {
-            function success(img) {
-                picture1 = b64toBlob(img, 'image/jpeg');
-                document.getElementById("robotPhoto1Preview").style.display = "block";
-                robotPhoto1Preview.src = URL.createObjectURL(picture1);
-            }
-            function fail() {
-                console.log('existingPicture1 fail');
-            }
-            navigator.camera.getPicture(success, fail, {destinationType: Camera.DestinationType.DATA_URL, sourceType: Camera.PictureSourceType.PHOTOLIBRARY});
-        });
+        function success(img) {
+            picture1 = b64toBlob(img, 'image/jpeg');
+            document.getElementById("robotPhoto1Preview").style.display = "block";
+            robotPhoto1Preview.src = URL.createObjectURL(picture1);
+        }
+        function fail() {
+            console.log('existingPicture1 fail');
+        }
+        navigator.camera.getPicture(success, fail, { destinationType: Camera.DestinationType.DATA_URL, sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
     }
     var picture2 = '';
     document.getElementById('newPicture2').onclick = function () {
-        document.addEventListener('deviceready', function () {
-            function success(img) {
-                picture2 = b64toBlob(img, 'image/jpeg');
-                document.getElementById("robotPhoto2Preview").style.display = "block";
-                robotPhoto2Preview.src = URL.createObjectURL(picture2);
-            }
-            function fail() {
-                console.log('newPicture2 fail');
-            }
-            navigator.camera.getPicture(success, fail, {destinationType: Camera.DestinationType.DATA_URL});
-        });
+        function success(img) {
+            picture2 = b64toBlob(img, 'image/jpeg');
+            document.getElementById("robotPhoto2Preview").style.display = "block";
+            robotPhoto2Preview.src = URL.createObjectURL(picture2);
+        }
+        function fail() {
+            console.log('newPicture2 fail');
+        }
+        navigator.camera.getPicture(success, fail, { destinationType: Camera.DestinationType.DATA_URL });
     }
     document.getElementById('existingPicture2').onclick = function () {
-        document.addEventListener('deviceready', function () {
-            function success(img) {
-                picture2 = b64toBlob(img, 'image/jpeg');
-                document.getElementById("robotPhoto2Preview").style.display = "block";
-                robotPhoto2Preview.src = URL.createObjectURL(picture2);
-            }
-            function fail() {
-                console.log('existingPicture2 fail');
-            }
-            navigator.camera.getPicture(success, fail, {destinationType: Camera.DestinationType.DATA_URL, sourceType: Camera.PictureSourceType.PHOTOLIBRARY});
-        });
+        function success(img) {
+            picture2 = b64toBlob(img, 'image/jpeg');
+            document.getElementById("robotPhoto2Preview").style.display = "block";
+            robotPhoto2Preview.src = URL.createObjectURL(picture2);
+        }
+        function fail() {
+            console.log('existingPicture2 fail');
+        }
+        navigator.camera.getPicture(success, fail, { destinationType: Camera.DestinationType.DATA_URL, sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
     }
     function show(doc) {
         var vision = doc.vision;
@@ -158,13 +148,13 @@ window.onload = async function () {
         var doc = {
             _id: `pit_${teamNumber}`,
             _attachments: {
-                'photo1.jpg':{
+                'photo1.jpg': {
                     content_type: picture1.type || '',
                     data: picture1 || ''
                 },
                 'photo2.jpg': {
-                    content_type: picture1.type || '',
-                    data: picture1 || ''
+                    content_type: picture2.type || '',
+                    data: picture2 || ''
                 }
             },
             scoutName: scoutName,
@@ -196,7 +186,7 @@ window.onload = async function () {
                             doc._attachments['photo2.jpg'].data = old._attachments['photo2.jpg'].data;
                             doc._attachments['photo2.jpg'].content_type = old._attachments['photo2.jpg'].content_type;
                         }
-                        let newDoc = await db.put(doc, {force: true});
+                        let newDoc = await db.put(doc, { force: true });
                         window.alert("Updated!");
                         window.location.href = '../pit/index.html';
                     }
@@ -211,9 +201,10 @@ window.onload = async function () {
     document.getElementById("teamNumber").onkeyup = async function () {
         try {
             var pitDoc = await db.get(`pit_${$('#teamNumber').val()}`, { attachments: true, binary: true });
+            hide();
             show(pitDoc);
         } catch (err) {
             hide();
         }
-    }   
-}
+    }
+});
