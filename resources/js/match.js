@@ -19,12 +19,13 @@ document.addEventListener('deviceready', async function () {
     if (localStorage.getItem('settingsCheck') == 1){
         var databaseName = localStorage.getItem('databaseName');
         var db;
-        if (device.platform != "browser") {
+        if (JSON.parse(localStorage.getItem('sqLite'))) {
             db = new PouchDB(databaseName, {adapter: 'cordova-sqlite'});
             console.log(db.adapter);
             console.log('SQLite plugin is installed?: ' + (!!window.sqlitePlugin));
         } else {
             db = new PouchDB(databaseName);
+            console.log(db.adapter);
         }
     } else {
         $('#Submit').prop('disabled', true);
