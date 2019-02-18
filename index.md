@@ -490,23 +490,23 @@ files: |
             <div class="col">
                 <label class="mr-sm-2" style="display: block" for="anythingBreak">Did Anything Break?</label>
                 <div id="anythingBreak" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="anythingBreakNo" class="btn btn-secondary">
-                        <input type="radio" value="0" name="anythingBreak" id="anythingBreakNo" autocomplete="off"> No
-                    </label>
                     <label id="anythingBreakYes" class="btn btn-secondary">
                         <input type="radio" value="1" name="anythingBreak" id="anythingBreakYes" autocomplete="off">
                         Yes
+                    </label>
+                    <label id="anythingBreakNo" class="btn btn-secondary">
+                        <input type="radio" value="0" name="anythingBreak" id="anythingBreakNo" autocomplete="off"> No
                     </label>
                 </div>
             </div>
             <div class="col">
                 <label class="mr-sm-2" style="display: block" for="robotDead">Robot Dead, Disabled, Disconnected</label>
                 <div id="robotDead" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="robotDeadNo" class="btn btn-secondary">
-                        <input type="radio" value="0" name="robotDead" id="robotDeadNo" autocomplete="off"> No
-                    </label>
                     <label id="robotDeadYes" class="btn btn-secondary">
                         <input type="radio" value="1" name="robotDead" id="robotDeadYes" autocomplete="off"> Yes
+                    </label>
+                    <label id="robotDeadNo" class="btn btn-secondary">
+                        <input type="radio" value="0" name="robotDead" id="robotDeadNo" autocomplete="off"> No
                     </label>
                 </div>
             </div>

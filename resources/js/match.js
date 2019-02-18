@@ -116,6 +116,9 @@ document.addEventListener('deviceready', async function () {
             }
             if (minutes == 0 && seconds == 0 && tenths == 0) {
                 clearInterval(Interval);
+                $('#cargoPickup').prop('disabled', true);
+                $('#hatchPickup').prop('disabled', true);
+                $('#climbStart').prop('disabled', true);
             }
         };
         // we don't want to wait a full second before the timer starts
@@ -400,16 +403,16 @@ document.addEventListener('deviceready', async function () {
 
         var doc = {
             _id: `${matchType}${matchNumber}_${teamNumber}`,
-            startingLevel: startingLevel,
-            crossedBaseline: crossedBaseline,
+            startingLevel: startingLevel || 1,
+            crossedBaseline: crossedBaseline || 0,
             crossedBaselineTime: crossedBaselineTime,
-            sandstormCargoCargoship: sandstormCargoCargoship,
+            sandstormCargoCargoship: sandstormCargoCargoship || 0,
             sandstormCargoCargoshipTime: sandstormCargoCargoshipTime,
-            sandstormCargoRocket: sandstormCargoRocket,
+            sandstormCargoRocket: sandstormCargoRocket ||0,
             sandstormCargoRocketTime: sandstormCargoRocketTime,
-            sandstormHatchCargoship: sandstormHatchCargoship,
+            sandstormHatchCargoship: sandstormHatchCargoship || 0,
             sandstormHatchCargoshipTime: sandstormHatchCargoshipTime,
-            sandstormHatchRocket: sandstormHatchRocket,
+            sandstormHatchRocket: sandstormHatchRocket || 0,
             sandstormHatchRocketTime: sandstormHatchRocketTime,
             teleopCargoshipCargo: teleopCargoshipCargo,
             teleopRocket1Cargo: teleopRocket1Cargo,
@@ -425,14 +428,14 @@ document.addEventListener('deviceready', async function () {
             teleopHatchTime: teleopHatchTime,
             climbingType: climbingType,
             climbingTime: climbingTime,
-            climbingGaveAssistance: climbingGaveAssistance,
-            climbingGotAssistance: climbingGotAssistance,
-            speed: speed,
-            stability: stability,
-            driverSkill: driverSkill,
-            defence: defence,
-            anythingBreak: anythingBreak,
-            dead: dead,
+            climbingGaveAssistance: climbingGaveAssistance || 0,
+            climbingGotAssistance: climbingGotAssistance || 0,
+            speed: speed || 0,
+            stability: stability || 0,
+            driverSkill: driverSkill || 0,
+            defence: defence || 0,
+            anythingBreak: anythingBreak || 0,
+            dead: dead || 0,
             comments: comments
         }
         if (localStorage.getItem('settingsCheck') == 1) {
@@ -445,11 +448,21 @@ document.addEventListener('deviceready', async function () {
                     if (err.status == 409) {
                         let old = await db.get(`${matchType}${matchNumber}_${teamNumber}`);
                         doc._rev = old._rev;
-                        doc.crossedBaselineTime = old.crossedBaselineTime;
-                        doc.sandstormCargoCargoshipTime = old.sandstormCargoCargoshipTime;
-                        doc.sandstormCargoRocketTime = old.sandstormCargoRocketTime;
-                        doc.sandstormHatchCargoshipTime = old.sandstormHatchCargoshipTime;
-                        doc.sandstormHatchRocketTime = old.sandstormHatchRocketTime;
+                        if (old.crossedBaselineTime) {
+                            doc.crossedBaselineTime = old.crossedBaselineTime;
+                        }
+                        if (old.sandstormCargoCargoshipTime) {
+                            doc.sandstormCargoCargoshipTime = old.sandstormCargoCargoshipTime;
+                        }
+                        if (old.sandstormCargoRocketTime) {
+                            doc.sandstormCargoRocketTime = old.sandstormCargoRocketTime;
+                        }
+                        if (old.sandstormHatchCargoshipTime) {
+                            doc.sandstormHatchCargoshipTime = old.sandstormHatchCargoshipTime;
+                        }
+                        if (old.sandstormHatchRocketTime) {
+                            doc.sandstormHatchRocketTime = old.sandstormHatchRocketTime;
+                        }
                         doc.teleopCargoTime = old.teleopCargoTime;
                         doc.teleopHatchTime = old.teleopHatchTime;
                         doc.climbingTime = old.climbingTime;
