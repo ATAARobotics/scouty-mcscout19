@@ -443,7 +443,7 @@ document.addEventListener('deviceready', async function () {
                 try {
                     let docPut = await db.put(doc);
                     window.alert("Submitted!");
-                    window.location.href = "/";
+                    window.location.reload();
                 } catch (err) {
                     if (err.status == 409) {
                         let old = await db.get(`${matchType}${matchNumber}_${teamNumber}`);
@@ -468,7 +468,7 @@ document.addEventListener('deviceready', async function () {
                         doc.climbingTime = old.climbingTime;
                         let newDoc = await db.put(doc, {force: true});
                         window.alert("Updated!");
-                        window.location.href = "/";
+                        window.location.reload();
                     }
                 }
             } else {
