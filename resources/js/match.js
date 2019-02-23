@@ -403,6 +403,7 @@ document.addEventListener('deviceready', async function () {
 
         var doc = {
             _id: `${matchType}${matchNumber}_${teamNumber}`,
+            scoutName: localStorage.getItem('scoutName'),
             startingLevel: startingLevel || 1,
             crossedBaseline: crossedBaseline || 0,
             crossedBaselineTime: crossedBaselineTime,
