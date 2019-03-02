@@ -1,15 +1,19 @@
 document.addEventListener('deviceready', async function () {
+    //Creates various variables pertaining to match times
     var startMatch = document.getElementById('startMatch');
     var timeSeconds = document.getElementById("timeSeconds");
     var timeMinutes = document.getElementById("timeMinutes");
     var timeTenths = document.getElementById("timeTenths");
 
+    //Creates various variables pertaining to the time it
+    //takes for a robot to do various tasks in the match
     var crossedBaselineTime;
     var sandstormCargoCargoshipTime;
     var sandstormCargoRocketTime;
     var sandstormHatchCargoshipTime;
     var sandstormHatchRocketTime;
 
+    //Sets each time equal to an array
     var teleopCargoTimeTemp = [];
     var teleopCargoTime = [];
     var teleopHatchTimeTemp = [];
@@ -86,6 +90,7 @@ document.addEventListener('deviceready', async function () {
     }
 
     function startTimer() {
+        //Places various variables in the start timer function
         var start = Date.now(),
             diff,
             minutes,
@@ -105,6 +110,7 @@ document.addEventListener('deviceready', async function () {
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
     
+            //Sets each HTML time element equal to its respective units
             timeTenths.innerHTML = tenths;
             timeSeconds.innerHTML = seconds;
             timeMinutes.innerHTML = minutes;
@@ -114,6 +120,8 @@ document.addEventListener('deviceready', async function () {
                 // example 05:00 not 04:59
                 start = Date.now() + 1000;
             }
+            //If time has run out, then prevent the user from pressing
+            //the cargo pickup, hatch pickup, and climb start buttons
             if (minutes == 0 && seconds == 0 && tenths == 0) {
                 clearInterval(Interval);
                 $('#cargoPickup').prop('disabled', true);
