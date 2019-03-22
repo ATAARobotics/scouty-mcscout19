@@ -8,9 +8,12 @@ files: |
 	<form>
 		<div class="row">
 			<div class="col-md">
-				<label class="mr-sm-2" for="serverIp">Server IP:</label>
-				<input id="serverIp" class="form-control" placeholder="Server IP">
-			</div>
+                <label class="mr-sm-2" for="matchType">Match Type</label>
+                <select class="custom-select mr-sm-2" id="matchType">
+                    <option value="p">Practice</option>
+                    <option selected value="q">Qualification</option>
+                </select>
+            </div>
 			<div class="col-md">
 				<label class="mr-sm-2" for="databaseName">Database Name:</label>
 				<input id="databaseName" class="form-control" placeholder="Database Name">
@@ -21,6 +24,10 @@ files: |
 			</div>
 		</div>
 		<div class="row">
+			<div class="col-md">
+				<label class="mr-sm-2" for="serverIp">Server IP:</label>
+				<input id="serverIp" class="form-control" placeholder="Server IP">
+			</div>
 			<div class="col-md">
 				<label class="mr-sm-2" for="serverUsername">Username:</label>
 				<input id="serverUsername" class="form-control" placeholder="Username">

@@ -346,16 +346,12 @@ document.addEventListener('deviceready', async function () {
 
     async function update() {
         try {
-            var matchDoc = await db.get(`${$('#matchType').val()}${$('#matchNumber').val()}_${$('#teamNumber').val()}`);
+            var matchDoc = await db.get(`${localStorage.getItem('matchType')}${$('#matchNumber').val()}_${$('#teamNumber').val()}`);
             hide();
             show(matchDoc);
         } catch (err) {
             hide();
         }
-    }
-
-    document.getElementById('matchType').onchange = function() {
-        update();
     }
 
     document.getElementById('matchNumber').onkeyup = function() {
@@ -366,7 +362,7 @@ document.addEventListener('deviceready', async function () {
     }
 
     document.getElementById("Submit").onclick = async function () {
-        var matchType = $('#matchType').val();
+        var matchType = localStorage.getItem('matchType');
         var matchNumber = $('#matchNumber').val();
         var teamNumber = $('#teamNumber').val();
 
@@ -440,7 +436,7 @@ document.addEventListener('deviceready', async function () {
             comments: comments
         }
         if (localStorage.getItem('settingsCheck') == 1) {
-            if (matchType && matchNumber && teamNumber) {
+            if (matchNumber && teamNumber) {
                 try {
                     let docPut = await db.put(doc);
                     window.alert("Submitted!");

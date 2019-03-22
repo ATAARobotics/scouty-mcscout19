@@ -15,13 +15,6 @@ files: |
         </div>
         <div class="row">
             <div class="col">
-                <label class="mr-sm-2" for="matchType">Match Type</label>
-                <select class="custom-select mr-sm-2" id="matchType">
-                    <option value="p">Practice</option>
-                    <option selected value="q">Qualification</option>
-                </select>
-            </div>
-            <div class="col">
                 <label class="mr-sm-2" for="matchNumber">Match Number</label>
                 <input id="matchNumber" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                     autocomplete="off" type="tel" class="form-control" placeholder="Match Number">

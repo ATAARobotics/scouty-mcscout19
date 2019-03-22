@@ -11,6 +11,8 @@ document.addEventListener('deviceready', async function () {
     serverPasswordSet.value = localStorage.getItem('serverPassword');
     var sqLite = document.getElementById("sqLite");
     sqLite.checked = JSON.parse(localStorage.getItem('sqLite'));
+    var matchTypeSet = document.getElementById("matchType");
+    matchType.value = localStorage.getItem('matchType');
 
     $('#Delete').on('click', async function(e){
         if (localStorage.getItem('settingsCheck') == 1){
@@ -41,6 +43,7 @@ document.addEventListener('deviceready', async function () {
         var serverUsername = $('#serverUsername').val();
         var serverPassword = $('#serverPassword').val();
         var sqLiteChecked = sqLite.checked;
+        var matchType = $('#matchType').val();
         function correct() {
             localStorage.setItem('databaseName', databaseName);
             localStorage.setItem('serverIp', serverIp);
@@ -49,6 +52,7 @@ document.addEventListener('deviceready', async function () {
             localStorage.setItem('serverUsername', serverUsername);
             localStorage.setItem('serverPassword', serverPassword);
             localStorage.setItem('sqLite', sqLiteChecked);
+            localStorage.setItem('matchType', matchType);
             window.alert("Settings Saved!");
             window.location.href = '../index.html';
         };
@@ -60,6 +64,7 @@ document.addEventListener('deviceready', async function () {
             localStorage.setItem('serverPassword', '');
             localStorage.setItem('settingsCheck', '0');
             localStorage.setItem('sqLite', false);
+            localStorage.setItem('matchType', matchType);
         };
         if (scoutName != "" && databaseName != "") {
             $.ajax({
