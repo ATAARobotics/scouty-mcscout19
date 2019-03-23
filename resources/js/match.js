@@ -3,6 +3,7 @@ document.addEventListener('deviceready', async function () {
     var timeSeconds = document.getElementById("timeSeconds");
     var timeMinutes = document.getElementById("timeMinutes");
     var timeTenths = document.getElementById("timeTenths");
+    var timerStarted = false;
 
     var crossedBaselineTime;
     var sandstormCargoCargoshipTime;
@@ -82,6 +83,7 @@ document.addEventListener('deviceready', async function () {
         $('#cargoPickup').prop('disabled', false);
         $('#hatchPickup').prop('disabled', false);
         $('#climbStart').prop('disabled', false);
+        timerStarted = true;
         startTimer();
     }
 
@@ -138,6 +140,9 @@ document.addEventListener('deviceready', async function () {
     }
 
     document.getElementById('crossedBaselineYes').onclick = function() {
+        if (!timerStarted) {
+            startTimer();
+        }
         if (!crossedBaselineTime) {
             crossedBaselineTime = `${timeMinutes.innerHTML}:${timeSeconds.innerHTML}.${timeTenths.innerHTML}`;
         }
@@ -169,11 +174,17 @@ document.addEventListener('deviceready', async function () {
 
 
     document.getElementById('cargoPickup').onclick = function() {
+        if (!timerStarted) {
+            startTimer();
+        }
         teleopCargoTimeTemp.push(`${timeMinutes.innerHTML}:${timeSeconds.innerHTML}.${timeTenths.innerHTML}`);
         pickup('disable');
         cargo('enable');
     }
     document.getElementById('hatchPickup').onclick = function() {
+        if (!timerStarted) {
+            startTimer();
+        }
         teleopHatchTimeTemp.push(`${timeMinutes.innerHTML}:${timeSeconds.innerHTML}.${timeTenths.innerHTML}`);
         pickup('disable');
         hatch('enable');
