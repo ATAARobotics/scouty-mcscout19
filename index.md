@@ -43,7 +43,7 @@ files: |
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2 col-sm-3 col-4">
+            <div class="col-6">
                 <label class="mr-sm-2" style="display: block" for="startingLevel">Starting Level</label>
                 <div id="startingLevel" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="startingLevel1" class="btn btn-secondary">
@@ -56,7 +56,7 @@ files: |
                     </label>
                 </div>
             </div>
-            <div class="col-lg-2 col-sm-3 col-4">
+            <div class="col-6">
                 <label class="mr-sm-2" style="display: block" for="startingLevel">Crossed Baseline</label>
                 <div id="crossedBaseline" class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label id="crossedBaselineYes" class="btn btn-secondary">
@@ -69,71 +69,11 @@ files: |
                     </label>
                 </div>
             </div>
-            <div class="col-lg-2 col-sm-3 col-4">
-                <label class="mr-sm-2" style="display: block" for="sandstormCargoCargoship">Cargo in Cargoship</label>
-                <div id="sandstormCargoCargoship" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="sandstormCargoCargoshipYes" class="btn btn-secondary">
-                        <input type="radio" value="1" name="sandstormCargoCargoship" id="sandstormCargoCargoshipYes"
-                            autocomplete="off">
-                        Yes
-                    </label>
-                    <label id="sandstormCargoCargoshipNo" class="btn btn-secondary">
-                        <input type="radio" value="0" name="sandstormCargoCargoship" id="sandstormCargoCargoshipNo"
-                            autocomplete="off">
-                        No
-                    </label>
-                </div>
-            </div>
-            <div class="col-lg-2 col-sm-3 col-4">
-                <label class="mr-sm-2" style="display: block" for="sandstormCargoRocket">Cargo in Rocket</label>
-                <div id="sandstormCargoRocket" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="sandstormCargoRocketYes" class="btn btn-secondary">
-                        <input type="radio" value="1" name="sandstormCargoRocket" id="sandstormCargoRocketYes"
-                            autocomplete="off">
-                        Yes
-                    </label>
-                    <label id="sandstormCargoRocketNo" class="btn btn-secondary">
-                        <input type="radio" value="0" name="sandstormCargoRocket" id="sandstormCargoRocketNo"
-                            autocomplete="off">
-                        No
-                    </label>
-                </div>
-            </div>
-            <div class="col-lg-2 col-sm-3 col-4">
-                <label class="mr-sm-2" style="display: block" for="sandstormHatchCargoship">Hatch in Cargoship</label>
-                <div id="sandstormHatchCargoship" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="sandstormHatchCargoshipYes" class="btn btn-secondary">
-                        <input type="radio" value="1" name="sandstormHatchCargoship" id="sandstormHatchCargoshipYes"
-                            autocomplete="off">
-                        Yes
-                    </label>
-                    <label id="sandstormHatchCargoshipNo" class="btn btn-secondary">
-                        <input type="radio" value="0" name="sandstormHatchCargoship" id="sandstormHatchCargoshipNo"
-                            autocomplete="off">
-                        No
-                    </label>
-                </div>
-            </div>
-            <div class="col-lg-2 col-sm-3 col-4">
-                <label class="mr-sm-2" style="display: block" for="sandstormHatchRocket">Hatch in Rocket</label>
-                <div id="sandstormHatchRocket" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="sandstormHatchRocketYes" class="btn btn-secondary">
-                        <input type="radio" value="1" name="sandstormHatchRocket" id="sandstormHatchRocketYes"
-                            autocomplete="off">
-                        Yes
-                    </label>
-                    <label id="sandstormHatchRocketNo" class="btn btn-secondary">
-                        <input type="radio" value="0" name="sandstormHatchRocket" id="sandstormHatchRocketNo"
-                            autocomplete="off">
-                        No
-                    </label>
-                </div>
-            </div>
         </div>
         <hr />
         <div class="row">
             <div class="col">
-                <h2>Teleop</h2>
+                <h2>Game Pieces</h2>
             </div>
         </div>
         <div class="row" style="border-bottom: 1px solid; border-color: rgba(0, 0, 0, 0.1)">

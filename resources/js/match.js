@@ -6,10 +6,6 @@ document.addEventListener('deviceready', async function () {
     var timerStarted = false;
 
     var crossedBaselineTime;
-    var sandstormCargoCargoshipTime;
-    var sandstormCargoRocketTime;
-    var sandstormHatchCargoshipTime;
-    var sandstormHatchRocketTime;
 
     var teleopCargoTimeTemp = [];
     var teleopCargoTime = [];
@@ -153,29 +149,6 @@ document.addEventListener('deviceready', async function () {
         }
     }
 
-    document.getElementById('sandstormCargoCargoshipYes').onclick = function() {
-        if (!sandstormCargoCargoshipTime) {
-            sandstormCargoCargoshipTime = `${timeMinutes.innerHTML}:${timeSeconds.innerHTML}.${timeTenths.innerHTML}`;
-        }
-    }
-
-    document.getElementById('sandstormCargoRocketYes').onclick = function() {
-        if (!sandstormCargoRocketTime) {
-            sandstormCargoRocketTime = `${timeMinutes.innerHTML}:${timeSeconds.innerHTML}.${timeTenths.innerHTML}`;
-        }
-    }
-
-    document.getElementById('sandstormHatchCargoshipYes').onclick = function() {
-        if (!sandstormHatchCargoshipTime) {
-            sandstormHatchCargoshipTime = `${timeMinutes.innerHTML}:${timeSeconds.innerHTML}.${timeTenths.innerHTML}`;
-        }
-    }
-
-    document.getElementById('sandstormHatchRocketYes').onclick = function() {
-        if (!sandstormHatchRocketTime) {
-            sandstormHatchRocketTime = `${timeMinutes.innerHTML}:${timeSeconds.innerHTML}.${timeTenths.innerHTML}`;
-        }
-    }
 
 
     document.getElementById('cargoPickup').onclick = function() {
@@ -317,14 +290,6 @@ document.addEventListener('deviceready', async function () {
         $('#' + $('input[name=startingLevel]:checked').attr("id")).addClass('active');
         $("input[name=crossedBaseline][value=" + doc.crossedBaseline + "]").prop('checked', true);
         $('#' + $('input[name=crossedBaseline]:checked').attr("id")).addClass('active');
-        $("input[name=sandstormCargoCargoship][value=" + doc.sandstormCargoCargoship + "]").prop('checked', true);
-        $('#' + $('input[name=sandstormCargoCargoship]:checked').attr("id")).addClass('active');
-        $("input[name=sandstormCargoRocket][value=" + doc.sandstormCargoRocket + "]").prop('checked', true);
-        $('#' + $('input[name=sandstormCargoRocket]:checked').attr("id")).addClass('active');
-        $("input[name=sandstormHatchCargoship][value=" + doc.sandstormHatchCargoship + "]").prop('checked', true);
-        $('#' + $('input[name=sandstormHatchCargoship]:checked').attr("id")).addClass('active');
-        $("input[name=sandstormHatchRocket][value=" + doc.sandstormHatchRocket + "]").prop('checked', true);
-        $('#' + $('input[name=sandstormHatchRocket]:checked').attr("id")).addClass('active');
         $('#commentSection').val(`${doc.comments}\n---EDIT---\n`);
         $("input[name=gaveAssistance][value=" + doc.climbingGaveAssistance + "]").prop('checked', true);
         $('#' + $('input[name=gaveAssistance]:checked').attr("id")).addClass('active');
@@ -348,10 +313,6 @@ document.addEventListener('deviceready', async function () {
     function hide() {
         $('#' + $('input[name=startingLevel]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=crossedBaseline]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=sandstormCargoCargoship]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=sandstormCargoRocket]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=sandstormHatchCargoship]:checked').attr("id")).removeClass('active');
-        $('#' + $('input[name=sandstormHatchRocket]:checked').attr("id")).removeClass('active');
         $('#climbingType').val("Choose...");
         $('#cargoshipCargo').val("0");
         $('#rocket1Cargo').val("0");
@@ -400,10 +361,6 @@ document.addEventListener('deviceready', async function () {
 
         var startingLevel = parseInt($('input[name=startingLevel]:checked').val());
         var crossedBaseline = parseInt($('input[name=crossedBaseline]:checked').val());
-        var sandstormCargoCargoship = parseInt($('input[name=sandstormCargoCargoship]:checked').val());
-        var sandstormCargoRocket = parseInt($('input[name=sandstormCargoRocket]:checked').val());
-        var sandstormHatchCargoship = parseInt($('input[name=sandstormHatchCargoship]:checked').val());
-        var sandstormHatchRocket = parseInt($('input[name=sandstormHatchRocket]:checked').val());
 
         var teleopCargoshipCargo = parseInt($('#cargoshipCargo').val());
         var teleopRocket1Cargo = parseInt($('#rocket1Cargo').val());
@@ -435,14 +392,6 @@ document.addEventListener('deviceready', async function () {
             startingLevel: startingLevel || 1,
             crossedBaseline: crossedBaseline || 0,
             crossedBaselineTime: crossedBaselineTime,
-            sandstormCargoCargoship: sandstormCargoCargoship || 0,
-            sandstormCargoCargoshipTime: sandstormCargoCargoshipTime,
-            sandstormCargoRocket: sandstormCargoRocket ||0,
-            sandstormCargoRocketTime: sandstormCargoRocketTime,
-            sandstormHatchCargoship: sandstormHatchCargoship || 0,
-            sandstormHatchCargoshipTime: sandstormHatchCargoshipTime,
-            sandstormHatchRocket: sandstormHatchRocket || 0,
-            sandstormHatchRocketTime: sandstormHatchRocketTime,
             teleopCargoshipCargo: teleopCargoshipCargo,
             teleopRocket1Cargo: teleopRocket1Cargo,
             teleopRocket2Cargo: teleopRocket2Cargo,
@@ -479,18 +428,6 @@ document.addEventListener('deviceready', async function () {
                         doc._rev = old._rev;
                         if (old.crossedBaselineTime) {
                             doc.crossedBaselineTime = old.crossedBaselineTime;
-                        }
-                        if (old.sandstormCargoCargoshipTime) {
-                            doc.sandstormCargoCargoshipTime = old.sandstormCargoCargoshipTime;
-                        }
-                        if (old.sandstormCargoRocketTime) {
-                            doc.sandstormCargoRocketTime = old.sandstormCargoRocketTime;
-                        }
-                        if (old.sandstormHatchCargoshipTime) {
-                            doc.sandstormHatchCargoshipTime = old.sandstormHatchCargoshipTime;
-                        }
-                        if (old.sandstormHatchRocketTime) {
-                            doc.sandstormHatchRocketTime = old.sandstormHatchRocketTime;
                         }
                         doc.teleopCargoTime = old.teleopCargoTime;
                         doc.teleopHatchTime = old.teleopHatchTime;
