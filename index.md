@@ -240,6 +240,11 @@ files: |
                         <button id='cargoPickup' class="btn btn-warning" type="button" style="width: 100%; margin-bottom: 15px">Pickup</button>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id='cancelCargoPickup' class="btn btn-danger" type="button" style="width: 100%; margin-bottom: 15px" disabled="true">Cancel Pickup</button>
+                    </div>
+                </div>
             </div>
             <div class="col-6">
                 <div class="row">
@@ -342,6 +347,11 @@ files: |
                 <div class="row">
                     <div class="col-12">
                         <button id='hatchPickup' class="btn btn-warning" type="button" style="width: 100%; margin-bottom: 15px">Pickup</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id='cancelHatchPickup' class="btn btn-danger" type="button" style="width: 100%; margin-bottom: 15px" disabled="true">Cancel Pickup</button>
                     </div>
                 </div>
             </div>

@@ -51,6 +51,7 @@ document.addEventListener('deviceready', async function () {
             $('#rocket2HatchPlace').prop('disabled', false);
             $('#rocket3HatchPlace').prop('disabled', false);
             $('#hatchDropped').prop('disabled', false);
+            $('#cancelHatchPickup').prop('disabled', false);
         }
         if (a == "disable") {
             $('#cargoshipHatchPlace').prop('disabled', true);
@@ -58,6 +59,7 @@ document.addEventListener('deviceready', async function () {
             $('#rocket2HatchPlace').prop('disabled', true);
             $('#rocket3HatchPlace').prop('disabled', true);
             $('#hatchDropped').prop('disabled', true);
+            $('#cancelHatchPickup').prop('disabled', true);
         }
     }
 
@@ -68,6 +70,7 @@ document.addEventListener('deviceready', async function () {
             $('#rocket2CargoPlace').prop('disabled', false);
             $('#rocket3CargoPlace').prop('disabled', false);
             $('#cargoDropped').prop('disabled', false);
+            $('#cancelCargoPickup').prop('disabled', false);
         }
         if (a == "disable") {
             $('#cargoshipCargoPlace').prop('disabled', true);
@@ -75,13 +78,12 @@ document.addEventListener('deviceready', async function () {
             $('#rocket2CargoPlace').prop('disabled', true);
             $('#rocket3CargoPlace').prop('disabled', true);
             $('#cargoDropped').prop('disabled', true);
+            $('#cancelCargoPickup').prop('disabled', true);
         }
     }
 
     startMatch.onclick = function () {
         $('#startMatch').prop('disabled', true);
-        $('#cargoPickup').prop('disabled', false);
-        $('#hatchPickup').prop('disabled', false);
         $('#climbStart').prop('disabled', false);
         timerStarted = true;
         startTimer();
@@ -141,6 +143,9 @@ document.addEventListener('deviceready', async function () {
 
     document.getElementById('crossedBaselineYes').onclick = function() {
         if (!timerStarted) {
+            $('#startMatch').prop('disabled', true);
+            $('#climbStart').prop('disabled', false);
+            timerStarted = true;
             startTimer();
         }
         if (!crossedBaselineTime) {
@@ -175,19 +180,35 @@ document.addEventListener('deviceready', async function () {
 
     document.getElementById('cargoPickup').onclick = function() {
         if (!timerStarted) {
+            $('#startMatch').prop('disabled', true);
+            $('#climbStart').prop('disabled', false);
+            timerStarted = true;
             startTimer();
         }
         teleopCargoTimeTemp.push(`${timeMinutes.innerHTML}:${timeSeconds.innerHTML}.${timeTenths.innerHTML}`);
         pickup('disable');
         cargo('enable');
     }
+    document.getElementById('cancelCargoPickup').onclick = function() {
+        teleopCargoTimeTemp = [];
+        pickup('enable');
+        cargo('disable');
+    }
     document.getElementById('hatchPickup').onclick = function() {
         if (!timerStarted) {
+            $('#startMatch').prop('disabled', true);
+            $('#climbStart').prop('disabled', false);
+            timerStarted = true;
             startTimer();
         }
         teleopHatchTimeTemp.push(`${timeMinutes.innerHTML}:${timeSeconds.innerHTML}.${timeTenths.innerHTML}`);
         pickup('disable');
         hatch('enable');
+    }
+    document.getElementById('cancelHatchPickup').onclick = function() {
+        teleopHatchTimeTemp = [];
+        pickup('enable');
+        hatch('disable');
     }
     document.getElementById('cargoshipCargoPlace').onclick = function() {
         teleopCargoTimeTemp.push(`${timeMinutes.innerHTML}:${timeSeconds.innerHTML}.${timeTenths.innerHTML}`);
