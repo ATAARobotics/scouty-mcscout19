@@ -84,7 +84,6 @@ document.addEventListener('deviceready', async function () {
         navigator.camera.getPicture(success, fail, { destinationType: Camera.DestinationType.DATA_URL, sourceType: Camera.PictureSourceType.PHOTOLIBRARY });
     }
     function show(doc) {
-        var vision = doc.vision;
         var robotAppearance = doc.robotAppearance;
         var groundIntake = doc.groundIntake;
         var climbLevel = doc.climbLevel;
@@ -100,8 +99,6 @@ document.addEventListener('deviceready', async function () {
         robotPhoto2Preview.src = robotPhoto2Url;
         document.getElementById("robotPhoto1Preview").style.display = "block";
         document.getElementById("robotPhoto2Preview").style.display = "block";
-        $("input[name=vision][value=" + vision + "]").prop('checked', true);
-        $('#' + $('input[name=vision]:checked').attr("id")).addClass('active');
         $("input[name=robotAppearance][value=" + robotAppearance + "]").prop('checked', true);
         $('#' + $('input[name=robotAppearance]:checked').attr("id")).addClass('active');
         $("input[name=groundIntake][value=" + groundIntake + "]").prop('checked', true);
@@ -118,7 +115,6 @@ document.addEventListener('deviceready', async function () {
         $('#' + $('input[name=robotBroken]:checked').attr("id")).addClass('active');
     }
     function hide() {
-        $('#' + $('input[name=vision]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=robotAppearance]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=groundIntake]:checked').attr("id")).removeClass('active');
         $('#' + $('input[name=climbLevel]:checked').attr("id")).removeClass('active');
@@ -137,7 +133,6 @@ document.addEventListener('deviceready', async function () {
     document.getElementById("Submit").onclick = async function () {
         var teamNumber = $('#teamNumber').val();
         var scoutName = localStorage.getItem('scoutName');
-        var vision = parseInt($('input[name=vision]:checked').val());
         var robotAppearance = parseInt($('input[name=robotAppearance]:checked').val());
         var groundIntake = $('input[name=groundIntake]:checked').val();
         var climbLevel = parseInt($('input[name=climbLevel]:checked').val());
@@ -159,7 +154,6 @@ document.addEventListener('deviceready', async function () {
                 }
             },
             scoutName: scoutName,
-            vision: vision,
             robotAppearance: robotAppearance,
             groundIntake: groundIntake,
             climbLevel: climbLevel,
@@ -170,7 +164,7 @@ document.addEventListener('deviceready', async function () {
             comments: comments
         }
         if (localStorage.getItem('settingsCheck') == 1) {
-            if (teamNumber && vision != NaN && robotAppearance != NaN && groundIntake && climbLevel != NaN && cargoLevel && hatchLevel && robotDone != NaN && robotBroken != NaN) {
+            if (teamNumber && robotAppearance != NaN && groundIntake && climbLevel != NaN && cargoLevel && hatchLevel && robotDone != NaN && robotBroken != NaN) {
                 try {
                     let docPut = await db.put(doc);
                     window.alert("Submitted!");

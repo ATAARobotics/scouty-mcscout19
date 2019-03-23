@@ -16,19 +16,6 @@ files: |
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-2 col-3">
-                <label class="mr-sm-2" style="display: block" for="vision">Vision</label>
-                <div id="vision" class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label id="visionYes" class="btn btn-secondary">
-                        <input type="radio" value="1" name="vision" id="visionYes" autocomplete="off">
-                        Yes
-                    </label>
-                    <label id="visionNo" class="btn btn-secondary">
-                        <input type="radio" value="0" name="vision" id="visionNo" autocomplete="off">
-                        No
-                    </label>
-                </div>
-            </div>
             <div class="col-lg-3 col-md-3 col-5">
                 <label class="mr-sm-2" style="display: block" for="robotAppearance">Overall Appearance:</label>
                 <div id="robotAppearance" class="btn-group btn-group-toggle" data-toggle="buttons">
