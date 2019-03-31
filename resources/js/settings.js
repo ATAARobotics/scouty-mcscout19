@@ -12,7 +12,7 @@ document.addEventListener('deviceready', async function () {
     var sqLite = document.getElementById("sqLite");
     sqLite.checked = JSON.parse(localStorage.getItem('sqLite'));
     var matchTypeSet = document.getElementById("matchType");
-    matchType.value = localStorage.getItem('matchType');
+    matchTypeSet.value = localStorage.getItem('matchType') || "q";
 
     $('#Delete').on('click', async function(e){
         if (localStorage.getItem('settingsCheck') == 1){
