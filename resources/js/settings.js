@@ -1,6 +1,6 @@
 document.addEventListener('deviceready', async function () {
     var databaseNameSet = document.getElementById("databaseName");
-    databaseNameSet.value = localStorage.getItem('databaseName') || 'abca2019';
+    databaseNameSet.value = localStorage.getItem('databaseName') || 'new2019';
     var serverIpSet = document.getElementById("serverIp");
     serverIpSet.value = localStorage.getItem('serverIp');
     var scoutNameSet = document.getElementById("scoutName");
